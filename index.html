@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=初级循环定时器">
+    <meta name="author" content="kurisu">
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script><!--引入angular-->
+    <link href="css/timeClock.css" rel="stylesheet">
+
+</head>
+<body>
+<h1>初级循环定时器</h1>
+<main ng-app="TimerApp" ng-controller="kurisuMainCtrl">
+    <header>
+        <div class="session">
+            <div class="jgCtrl">
+                <p>间隔</p>
+                <button ng-click="jgChange(-1)" class="minus">-</button><span class="time">{{jgLength}}</span>
+                <button ng-click="jgChange(1)" class="plus">+</button>
+            </div>
+
+            <div class="resetCtrl">
+                <button ng-click="reseter()" class="reseter">重置</button>
+            </div>
+            <div class="sessionCtrl">
+                <p>时长</p>
+                <button ng-click="stChange(-1)" class="minus">-</button><span class="time">{{stLength}}</span>
+                <button ng-click="stChange(1)" class="plus">+</button>
+            </div>
+        </div>
+    </header>
+    <section ng-click="toggleTimer()">
+        <div class="timer">
+            <p class="title">{{sessionName}}</p>
+            <p>{{timeLeft}}</p><span ng-style="{'height':fillHeight,'background':fillColor}" class="fill"></span><!--动态样式的处理，实现内容填充-->
+        </div>
+    </section>
+</main>
+</body>
+
+<script  src="js/timeClock.js"></script>
+</html>
